@@ -1,0 +1,191 @@
+[gd_scene load_steps=27 format=3 uid="uid://canigdgpnixu0"]
+
+[ext_resource type="Script" path="res://MageNPC.gd" id="1_oeh6d"]
+[ext_resource type="Resource" uid="uid://ca0aluefathdm" path="res://Assets/NPCs/Eleonore/Dialogues/0.tres" id="2_h7g3v"]
+[ext_resource type="Texture2D" uid="uid://c4i064dfnfqpc" path="res://Assets/Sprites/Witch/Idle1.png" id="2_pi1gu"]
+[ext_resource type="Texture2D" uid="uid://dxptnwv8enwtq" path="res://Assets/Sprites/Witch/Idle2.png" id="3_lo5jo"]
+[ext_resource type="Texture2D" uid="uid://cvwlwlsr2uu8b" path="res://Assets/Sprites/Witch/Idle3.png" id="4_j5fby"]
+[ext_resource type="Texture2D" uid="uid://hqxigytvp03u" path="res://Assets/Sprites/Witch/Idle4.png" id="5_xklbt"]
+[ext_resource type="Texture2D" uid="uid://jdi6dd01lb" path="res://Assets/Sprites/Witch/Idle5.png" id="6_rxuyi"]
+[ext_resource type="Texture2D" uid="uid://c8mvije8ameq1" path="res://Assets/Sprites/Witch/Idle6.png" id="7_r7l5j"]
+[ext_resource type="Texture2D" uid="uid://c2d8hpj2ewxni" path="res://Assets/Sprites/Witch/Idle7.png" id="8_r8p7j"]
+[ext_resource type="Texture2D" uid="uid://cqcq1dhwimdq7" path="res://Assets/Sprites/Witch/Idle8.png" id="9_fnkdx"]
+[ext_resource type="Texture2D" uid="uid://bbsyepqmxnwxp" path="res://Assets/Sprites/Witch/Idle9.png" id="10_4wext"]
+[ext_resource type="Texture2D" uid="uid://cdq8gdjqx8bo8" path="res://Assets/Sprites/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png" id="11_an3pe"]
+[ext_resource type="Texture2D" uid="uid://dsrc0gconqxl2" path="res://Assets/Sprites/CircleLight.png" id="12_15qo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgk4t"]
+size = Vector2(41, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_x0imd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_pi1gu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lo5jo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j5fby")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xklbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_rxuyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r7l5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r8p7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_fnkdx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4wext")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lupnn"]
+size = Vector2(63, 32)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pp1vi"]
+blend_mode = 1
+light_mode = 2
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_suig7"]
+offsets = PackedFloat32Array(0, 0.532787, 1)
+colors = PackedColorArray(1, 0.137255, 0, 1, 1, 0.866667, 0, 1, 0, 1, 0.933333, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_m5767"]
+gradient = SubResource("Gradient_suig7")
+
+[sub_resource type="Curve" id="Curve_oemd0"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.472527), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_attnl"]
+curve = SubResource("Curve_oemd0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_82e83"]
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+emission_shape = 2
+emission_sphere_radius = 64.0
+direction = Vector3(0, -1, 0)
+initial_velocity_max = 100.0
+gravity = Vector3(10, -98, 0)
+linear_accel_min = -50.0
+linear_accel_max = 50.0
+scale_min = 0.01
+scale_max = 0.02
+scale_curve = SubResource("CurveTexture_attnl")
+color_ramp = SubResource("GradientTexture1D_m5767")
+anim_speed_max = 1.0
+turbulence_enabled = true
+turbulence_noise_speed = Vector3(0.5, 2, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qf58k"]
+light_mode = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jxjxs"]
+texture = ExtResource("11_an3pe")
+texture_margin_left = 16.0
+texture_margin_top = 8.0
+texture_margin_right = 16.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="Theme" id="Theme_b2ryb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_os308"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+
+[node name="MageNPC" type="RigidBody2D"]
+freeze = true
+script = ExtResource("1_oeh6d")
+dialogue = ExtResource("2_h7g3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.5, 30)
+shape = SubResource("RectangleShape2D_sgk4t")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_x0imd")
+autoplay = "default"
+frame = 2
+frame_progress = 0.569376
+
+[node name="TriggerArea" type="Area2D" parent="."]
+position = Vector2(2, 53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(-0.5, 6)
+shape = SubResource("RectangleShape2D_lupnn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(7, 43)
+blend_mode = 2
+texture = ExtResource("12_15qo2")
+texture_scale = 0.5
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_pp1vi")
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_82e83")
+texture = ExtResource("12_15qo2")
+randomness = 0.5
+trail_lifetime = 8.0
+
+[node name="NormalTextContainer" type="PanelContainer" parent="."]
+visible = false
+light_mask = 0
+material = SubResource("CanvasItemMaterial_qf58k")
+custom_minimum_size = Vector2(64, 16)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -86.0
+offset_right = 31.5
+offset_bottom = -47.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxTexture_jxjxs")
+metadata/_edit_use_anchors_ = true
+
+[node name="IdlePhase" type="Label" parent="NormalTextContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.3
+theme = SubResource("Theme_b2ryb")
+label_settings = SubResource("LabelSettings_os308")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaveStartPhase" type="Label" parent="NormalTextContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 5.3
+theme = SubResource("Theme_b2ryb")
+label_settings = SubResource("LabelSettings_os308")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dialogue" type="CanvasLayer" parent="."]
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="body_exited" from="TriggerArea" to="." method="_on_trigger_area_body_exited"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://crtqcdc4thsne"]
+
+[ext_resource type="Texture2D" uid="uid://dsrc0gconqxl2" path="res://Assets/Sprites/CircleLight.png" id="1_hheoc"]
+[ext_resource type="Script" path="res://Assets/Scene/CursorParticle.gd" id="2_ef3fo"]
+
+[sub_resource type="Gradient" id="Gradient_tmof7"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(1, 0.0823529, 0, 1, 1, 0.458824, 0.0588235, 1, 1, 0.117647, 0.0784314, 0.392157)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ro6q4"]
+gradient = SubResource("Gradient_tmof7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4twfk"]
+lifetime_randomness = 0.5
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+angular_velocity_max = 100.0
+gravity = Vector3(0, 98, 0)
+linear_accel_max = 10.0
+scale_min = 0.01
+scale_max = 0.03
+color_ramp = SubResource("GradientTexture1D_ro6q4")
+turbulence_enabled = true
+
+[node name="CursorEffect" type="GPUParticles2D"]
+position = Vector2(3, 6)
+amount = 128
+process_material = SubResource("ParticleProcessMaterial_4twfk")
+texture = ExtResource("1_hheoc")
+interp_to_end = 0.1
+script = ExtResource("2_ef3fo")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.798696, 0.415714, 0.168721, 1)
+energy = 0.2
+texture = ExtResource("1_hheoc")
+texture_scale = 0.1

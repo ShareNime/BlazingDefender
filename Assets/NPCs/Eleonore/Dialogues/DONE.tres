@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://84o7yt8fshvd"]
+
+[ext_resource type="PackedScene" uid="uid://uxpwbyjlwtpv" path="res://Assets/Scene/main_menu.tscn" id="1_m5xvn"]
+[ext_resource type="Script" path="res://Dialogue.gd" id="1_uvr2m"]
+[ext_resource type="Resource" uid="uid://brr308stlcx58" path="res://Assets/NPCs/Eleonore/Dialogues/Yes.tres" id="2_0e7bm"]
+[ext_resource type="Texture2D" uid="uid://4ehr0g7ve44g" path="res://Assets/Sprites/Witch/Eleonore1.png" id="2_13obd"]
+
+[resource]
+script = ExtResource("1_uvr2m")
+texture = ExtResource("2_13obd")
+name = "Eleonora"
+dialogue = ""
+path_option = "..."
+options = Array[ExtResource("1_uvr2m")]([ExtResource("2_0e7bm")])
+doSomething = "ChangeScene"
+changeSceneTo = ExtResource("1_m5xvn")

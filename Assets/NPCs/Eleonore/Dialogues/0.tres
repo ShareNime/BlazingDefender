@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://ca0aluefathdm"]
+
+[ext_resource type="Resource" uid="uid://c1ep7tjoy2rwv" path="res://Assets/NPCs/Eleonore/Dialogues/1.tres" id="1_6epsg"]
+[ext_resource type="Script" path="res://Dialogue.gd" id="1_l1ik3"]
+[ext_resource type="Texture2D" uid="uid://4ehr0g7ve44g" path="res://Assets/Sprites/Witch/Eleonore1.png" id="2_hxey1"]
+
+[resource]
+script = ExtResource("1_l1ik3")
+texture = ExtResource("2_hxey1")
+name = "Eleonore"
+dialogue = "Ah! Who are you? How did you just appear here?"
+path_option = ""
+options = Array[ExtResource("1_l1ik3")]([ExtResource("1_6epsg")])
+doSomething = "None"

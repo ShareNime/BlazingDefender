@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://bspbtf1pjxpcv"]
+
+[ext_resource type="Script" path="res://Quest.gd" id="1_gqny6"]
+
+[resource]
+script = ExtResource("1_gqny6")
+title = "Q"
+description = "Q"
+objective = "Fetch"
+object = "Q"
+status = ""

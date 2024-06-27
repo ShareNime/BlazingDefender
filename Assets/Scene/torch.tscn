@@ -1,0 +1,119 @@
+[gd_scene load_steps=15 format=3 uid="uid://dbywla6kusfdg"]
+
+[ext_resource type="Texture2D" uid="uid://cea16r6gepdus" path="res://Assets/Sprites/Tiny Swords (Update 010)/Deco/16.png" id="1_33hop"]
+[ext_resource type="Script" path="res://Assets/Scene/TorchScript.gd" id="1_esw1j"]
+[ext_resource type="Texture2D" uid="uid://br7mqsf1r2a74" path="res://Assets/Sprites/Tiny Swords (Update 010)/Effects/Fire/Fire.png" id="2_g7w3k"]
+[ext_resource type="Texture2D" uid="uid://dsrc0gconqxl2" path="res://Assets/Sprites/CircleLight.png" id="4_2dcwo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s528e"]
+size = Vector2(16, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q6ry"]
+atlas = ExtResource("2_g7w3k")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugevk"]
+atlas = ExtResource("2_g7w3k")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koxxl"]
+atlas = ExtResource("2_g7w3k")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muxcx"]
+atlas = ExtResource("2_g7w3k")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnhjb"]
+atlas = ExtResource("2_g7w3k")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jlfy"]
+atlas = ExtResource("2_g7w3k")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wueaf"]
+atlas = ExtResource("2_g7w3k")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkpoq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q6ry")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugevk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koxxl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muxcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnhjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jlfy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wueaf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjxwa"]
+size = Vector2(112, 117)
+
+[node name="Torch" type="StaticBody2D" node_paths=PackedStringArray("fireSprite", "torchTimer", "countDownText", "torchLight")]
+z_as_relative = false
+script = ExtResource("1_esw1j")
+fireSprite = NodePath("Fire")
+torchTimer = NodePath("Timer")
+countDownText = NodePath("Label")
+torchLight = NodePath("PointLight2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 30.5)
+shape = SubResource("RectangleShape2D_s528e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3.8147e-06)
+texture = ExtResource("1_33hop")
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -52)
+scale = Vector2(0.625, 0.625)
+sprite_frames = SubResource("SpriteFrames_jkpoq")
+autoplay = "default"
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -35)
+color = Color(1, 0.466667, 0, 1)
+energy = 0.5
+texture = ExtResource("4_2dcwo")
+texture_scale = 0.5
+
+[node name="Label" type="Label" parent="."]
+offset_left = -18.0
+offset_top = -116.0
+offset_right = 22.0
+offset_bottom = -93.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TriggerLitArea" type="Area2D" parent="."]
+position = Vector2(2, -54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerLitArea"]
+position = Vector2(-2, -5.5)
+shape = SubResource("RectangleShape2D_cjxwa")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="mouse_shape_entered" from="TriggerLitArea" to="." method="_on_trigger_lit_area_mouse_shape_entered"]

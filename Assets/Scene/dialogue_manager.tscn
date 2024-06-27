@@ -1,0 +1,126 @@
+[gd_scene load_steps=10 format=3 uid="uid://bgtm2ircinlmw"]
+
+[ext_resource type="Script" path="res://Assets/Scene/dialogue_manager.gd" id="1_0rvei"]
+[ext_resource type="PackedScene" uid="uid://cacgakkeh2bf4" path="res://Assets/Scene/next_dialogue.tscn" id="2_twdao"]
+[ext_resource type="PackedScene" uid="uid://n54rd8q8x5pb" path="res://Assets/Scene/quest_button.tscn" id="3_7thix"]
+[ext_resource type="Texture2D" uid="uid://uj04ef0ivis8" path="res://Assets/Sprites/Tiny Swords (Update 010)/UI/Pointers/02.png" id="4_wgdkx"]
+[ext_resource type="Texture2D" uid="uid://4ehr0g7ve44g" path="res://Assets/Sprites/Witch/Eleonore1.png" id="5_fw770"]
+[ext_resource type="Texture2D" uid="uid://bdph33qcsxax" path="res://Assets/Sprites/Tiny Swords (Update 010)/UI/Banners/Carved_Regular.png" id="6_o03p5"]
+[ext_resource type="FontFile" uid="uid://dlyjndwg771kb" path="res://Assets/Fonts/Roboto-Black.ttf" id="7_cy5ol"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jm6si"]
+
+[sub_resource type="FontVariation" id="FontVariation_x7ofj"]
+base_font = ExtResource("7_cy5ol")
+
+[node name="DialogueManager" type="Node2D"]
+script = ExtResource("1_0rvei")
+next_button = ExtResource("2_twdao")
+quest_button = ExtResource("3_7thix")
+
+[node name="UI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="PanelContainer3" type="PanelContainer" parent="UI"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(240, 150)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -307.0
+offset_top = -328.0
+offset_right = 313.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PanelContainer3"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="IconPanelContainer" type="PanelContainer" parent="UI/PanelContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(90, 90)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jm6si")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/PanelContainer3/VBoxContainer/IconPanelContainer"]
+layout_mode = 2
+texture = ExtResource("4_wgdkx")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PanelContainer3/VBoxContainer/IconPanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="Icon" type="TextureRect" parent="UI/PanelContainer3/VBoxContainer/IconPanelContainer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+texture = ExtResource("5_fw770")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/PanelContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(240, 90)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="NinePatchRect" type="NinePatchRect" parent="UI/PanelContainer3/VBoxContainer/PanelContainer"]
+layout_mode = 2
+texture = ExtResource("6_o03p5")
+region_rect = Rect2(0, 0, 64, 64)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="UI/PanelContainer3/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/PanelContainer3/VBoxContainer/PanelContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Name" type="Label" parent="UI/PanelContainer3/VBoxContainer/PanelContainer/VBoxContainer3/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_x7ofj")
+theme_override_font_sizes/font_size = 48
+text = "Name"
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/PanelContainer3/VBoxContainer/PanelContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Dialogue" type="Label" parent="UI/PanelContainer3/VBoxContainer/PanelContainer/VBoxContainer3/MarginContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(600, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_cy5ol")
+theme_override_font_sizes/font_size = 18
+text = "Dialogue Text"
+autowrap_mode = 2
+
+[node name="Options" type="VBoxContainer" parent="UI/PanelContainer3/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 8

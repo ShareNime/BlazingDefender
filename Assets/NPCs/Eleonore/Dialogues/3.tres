@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=5 format=3 uid="uid://f0f7mlg0wyds"]
+
+[ext_resource type="Script" path="res://Dialogue.gd" id="1_lbcde"]
+[ext_resource type="Resource" uid="uid://dv0t4bq8roxd3" path="res://Assets/NPCs/Eleonore/Dialogues/No.tres" id="1_wqvwe"]
+[ext_resource type="Resource" uid="uid://blh8537v4xifl" path="res://Assets/NPCs/Eleonore/Quests/StageOneQuest.tres" id="2_pkgy5"]
+[ext_resource type="Texture2D" uid="uid://4ehr0g7ve44g" path="res://Assets/Sprites/Witch/Eleonore1.png" id="2_wf3oh"]
+
+[resource]
+script = ExtResource("1_lbcde")
+texture = ExtResource("2_wf3oh")
+name = "Eleonore"
+dialogue = "Are you ready ?"
+path_option = "Understood. I’ll keep the torches burning and guard you."
+options = Array[ExtResource("1_lbcde")]([ExtResource("1_wqvwe")])
+quest = ExtResource("2_pkgy5")
+doSomething = ""

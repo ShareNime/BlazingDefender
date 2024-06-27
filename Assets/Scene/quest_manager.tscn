@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://d6d34ilfnccq"]
+
+[ext_resource type="Script" path="res://QuestManager.gd" id="1_nmdkg"]
+[ext_resource type="Texture2D" uid="uid://bwti2ynfqmwf" path="res://Assets/Sprites/Tiny Swords (Update 010)/UI/Banners/Banner_Vertical.png" id="2_5mbjt"]
+[ext_resource type="Resource" uid="uid://bspbtf1pjxpcv" path="res://Assets/NPCs/Eleonore/Quests/dummy.tres" id="2_oh6dn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qyxgv"]
+texture = ExtResource("2_5mbjt")
+
+[node name="QuestManager" type="Node2D"]
+script = ExtResource("1_nmdkg")
+dummyQuest = ExtResource("2_oh6dn")
+
+[node name="CanvasQuestUI" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasQuestUI"]
+visible = false
+clip_contents = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -238.0
+offset_right = -5.0
+offset_bottom = 207.0
+grow_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxTexture_qyxgv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasQuestUI/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasQuestUI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -211.0
+offset_top = 25.0
+offset_right = -26.0
+offset_bottom = 277.0
+grow_horizontal = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasQuestUI/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_5mbjt")
+region_rect = Rect2(32, 32, 128, 128)
+patch_margin_left = 48
+patch_margin_top = 32
+patch_margin_right = 48
+patch_margin_bottom = 32
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasQuestUI/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="QuestDescription" type="Label" parent="CanvasQuestUI/MarginContainer/MarginContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+size_flags_vertical = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

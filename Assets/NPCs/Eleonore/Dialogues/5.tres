@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://ive3brvt32xq"]
+
+[ext_resource type="Script" path="res://Dialogue.gd" id="1_2kd7a"]
+[ext_resource type="Resource" uid="uid://84o7yt8fshvd" path="res://Assets/NPCs/Eleonore/Dialogues/DONE.tres" id="1_y4tm8"]
+[ext_resource type="Texture2D" uid="uid://4ehr0g7ve44g" path="res://Assets/Sprites/Witch/Eleonore1.png" id="2_oatjc"]
+
+[resource]
+script = ExtResource("1_2kd7a")
+texture = ExtResource("2_oatjc")
+name = "Eleonora"
+dialogue = "You were brave. There’s always another adventure waiting."
+path_option = "We make a great team, Eleonore. I’m glad I could help."
+options = Array[ExtResource("1_2kd7a")]([ExtResource("1_y4tm8")])
+doSomething = "None"

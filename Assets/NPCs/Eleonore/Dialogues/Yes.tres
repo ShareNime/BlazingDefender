@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://brr308stlcx58"]
+
+[ext_resource type="Script" path="res://Dialogue.gd" id="1_10fyw"]
+[ext_resource type="Texture2D" uid="uid://4ehr0g7ve44g" path="res://Assets/Sprites/Witch/Eleonore1.png" id="2_x58mq"]
+
+[resource]
+script = ExtResource("1_10fyw")
+texture = ExtResource("2_x58mq")
+name = "Eleonora"
+dialogue = ""
+path_option = "Lets do this!"
+options = Array[ExtResource("1_10fyw")]([])
+doSomething = "None"

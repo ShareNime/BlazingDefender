@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=3 format=3 uid="uid://blh8537v4xifl"]
+
+[ext_resource type="Resource" uid="uid://dbfhomnoggdyg" path="res://Assets/NPCs/Eleonore/Dialogues/4.tres" id="1_12odh"]
+[ext_resource type="Script" path="res://Quest.gd" id="1_bjump"]
+
+[resource]
+script = ExtResource("1_bjump")
+title = "Stage 1"
+description = "Protect Eleonore from the relentless goblin attacks and keep the torches lit to fend off the darkness."
+objective = "Survive"
+object = "None"
+status = ""
+next_questline = ExtResource("1_12odh")

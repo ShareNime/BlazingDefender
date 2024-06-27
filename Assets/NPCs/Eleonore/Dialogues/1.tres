@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=4 format=3 uid="uid://c1ep7tjoy2rwv"]
+
+[ext_resource type="Resource" uid="uid://ow1vwbkgh4tq" path="res://Assets/NPCs/Eleonore/Dialogues/2.tres" id="1_knysm"]
+[ext_resource type="Script" path="res://Dialogue.gd" id="1_nqslx"]
+[ext_resource type="Texture2D" uid="uid://4ehr0g7ve44g" path="res://Assets/Sprites/Witch/Eleonore1.png" id="2_1c3u7"]
+
+[resource]
+script = ExtResource("1_nqslx")
+texture = ExtResource("2_1c3u7")
+name = "Eleonore"
+dialogue = "This is the Forgotten Isle, and we’re under attack by goblins! I’m Eleonore. We need to defend this place."
+path_option = "I... I don’t know. Where am I? Who am I?"
+options = Array[ExtResource("1_nqslx")]([ExtResource("1_knysm")])
+doSomething = "None"
